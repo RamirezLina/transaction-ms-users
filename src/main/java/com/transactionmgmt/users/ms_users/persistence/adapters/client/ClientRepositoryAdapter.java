@@ -7,7 +7,6 @@ import com.transactionmgmt.users.ms_users.persistence.repositories.ClientDataRep
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -30,7 +29,8 @@ public class ClientRepositoryAdapter implements ClientRepository {
 
     @Override
     public List<Client> getAllClients() {
-        return mapper.getModels(dataRepository.findAll());
+        return mapper.getModels(dataRepository.findAll())
+                .stream().filter(Client::getStatus).toList();
     }
     
 
