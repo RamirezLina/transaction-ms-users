@@ -9,7 +9,6 @@ import com.transactionmgmt.users.ms_users.service.mappers.ClientDtoMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.math.BigInteger;
 import java.util.List;
 
 @RequiredArgsConstructor
