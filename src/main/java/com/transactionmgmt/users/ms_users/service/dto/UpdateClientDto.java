@@ -6,5 +6,6 @@ public record UpdateClientDto(
         int age,
         String identification,
         String address,
-        String phone) {
+        String phoneNumber
+        ) {
 }

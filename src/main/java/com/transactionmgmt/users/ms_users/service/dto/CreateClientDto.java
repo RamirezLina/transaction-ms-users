@@ -6,7 +6,7 @@ public record CreateClientDto (
         int age,
         String identification,
         String address,
-        String phone,
+        String phoneNumber,
         String password
 ) {
 }

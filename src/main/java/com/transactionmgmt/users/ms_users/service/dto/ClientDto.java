@@ -8,5 +8,5 @@ public record ClientDto(
         int age,
         String identification,
         String address,
-        String phone) {
+        String phoneNumber) {
 }

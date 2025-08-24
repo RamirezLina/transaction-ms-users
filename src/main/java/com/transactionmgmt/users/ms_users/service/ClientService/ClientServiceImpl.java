@@ -49,8 +49,8 @@ public class ClientServiceImpl implements ClientService {
         if (clienteRequestDTO.address() != null) {
             clientToUpdate.setAddress(clienteRequestDTO.address());
         }
-        if (clienteRequestDTO.phone() != null) {
-            clientToUpdate.setPhoneNumber(clienteRequestDTO.phone());
+        if (clienteRequestDTO.phoneNumber() != null) {
+            clientToUpdate.setPhoneNumber(clienteRequestDTO.phoneNumber());
         }
         repository.saveClient(clientToUpdate);
         return mapper.toResponse(clientToUpdate);
