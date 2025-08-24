@@ -23,7 +23,9 @@ public class ClientRepositoryAdapter implements ClientRepository {
 
     @Override
     public Client findByClientId(Long clientId) {
-        ClientEntity entity = dataRepository.findByClientId(clientId).orElseThrow();
+        ClientEntity entity = dataRepository.findByClientId(clientId)
+                .filter(ClientEntity::getStatus)
+                .orElseThrow();
         return mapper.toModel(entity);
     }
 
