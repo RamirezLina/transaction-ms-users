@@ -1,15 +1,13 @@
 package com.transactionmgmt.users.ms_users.domain.client;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@SuperBuilder
 public class Person {
     private String name;
     private GenderType gender;
