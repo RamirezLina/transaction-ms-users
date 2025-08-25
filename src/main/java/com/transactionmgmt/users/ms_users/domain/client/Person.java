@@ -12,7 +12,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Person {
     private String name;
-    private String gender;
+    private GenderType gender;
     private int age;
     private String identification;
     private String address;
