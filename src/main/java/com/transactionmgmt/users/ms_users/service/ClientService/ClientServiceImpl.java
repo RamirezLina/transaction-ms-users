@@ -63,4 +63,10 @@ public class ClientServiceImpl implements ClientService {
         repository.saveClient(clientToDelete);
         
     }
+
+    @Override
+    public ClientDto getClientById(Long clienteId) {
+        Client client = repository.findByClientId(clienteId);
+        return mapper.toResponse(client);
+    }
 }

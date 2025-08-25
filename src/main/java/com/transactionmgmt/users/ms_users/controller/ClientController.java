@@ -29,6 +29,11 @@ public class ClientController {
         return ResponseEntity.ok(clientService.getAllClients());
     }
 
+    @GetMapping("/{clienteId}")
+    public ResponseEntity<ClientDto> getClientById(@PathVariable Long clienteId) {
+        return ResponseEntity.ok(clientService.getClientById(clienteId));
+    }
+
     @PutMapping("/{clienteId}")
     public ResponseEntity<ClientDto> actualizarCliente(@PathVariable Long clienteId, @RequestBody UpdateClientDto clientDto) {
         return ResponseEntity.ok(clientService.updateClient(clienteId, clientDto));
@@ -40,4 +45,3 @@ public class ClientController {
         return ResponseEntity.noContent().build();
     }
 }
-
