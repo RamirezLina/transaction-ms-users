@@ -1,0 +1,23 @@
+services:
+  ms-users:
+    build: .
+    container_name: ms-users
+    ports:
+      - "8080:8080"
+    networks:
+      - internal-net
+    expose:
+      - "8080"
+    environment:
+      - MYSQL_CONNECTION_STRING=jdbc:mysql://mysql:3306
+      - MYSQL_DATABASE=ms-users
+      - MYSQL_PASSWORD=rootpassword
+      - MYSQL_USER=root
+      - RABBITMQ_HOST=rabbitmq
+      - RABBITMQ_PASSWORD=guest
+      - RABBITMQ_PORT=5672
+      - RABBITMQ_USERNAME=guest
+
+networks:
+  internal-net:
+    external: true

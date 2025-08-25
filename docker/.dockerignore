@@ -1,0 +1,9 @@
+.gradle
+.idea
+*.iml
+*.log
+*.md
+*.sql
+*.bat
+*.sh
+
