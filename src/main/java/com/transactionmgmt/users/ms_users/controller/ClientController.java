@@ -4,6 +4,7 @@ import com.transactionmgmt.users.ms_users.service.ClientService.ClientService;
 import com.transactionmgmt.users.ms_users.service.dto.ClientDto;
 import com.transactionmgmt.users.ms_users.service.dto.CreateClientDto;
 import com.transactionmgmt.users.ms_users.service.dto.UpdateClientDto;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +20,7 @@ public class ClientController {
     private final ClientService clientService;
 
     @PostMapping
-    public ResponseEntity<Void> saveClient(@RequestBody CreateClientDto clientDto) {
+    public ResponseEntity<Void> saveClient(@Valid  @RequestBody CreateClientDto clientDto) {
         clientService.createClient(clientDto);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -35,7 +36,7 @@ public class ClientController {
     }
 
     @PutMapping("/{clienteId}")
-    public ResponseEntity<ClientDto> actualizarCliente(@PathVariable Long clienteId, @RequestBody UpdateClientDto clientDto) {
+    public ResponseEntity<ClientDto> actualizarCliente(@PathVariable Long clienteId, @Valid @RequestBody UpdateClientDto clientDto) {
         return ResponseEntity.ok(clientService.updateClient(clienteId, clientDto));
     }
 

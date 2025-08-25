@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Repository
@@ -23,17 +24,18 @@ public class ClientRepositoryAdapter implements ClientRepository {
     }
 
     @Override
-    public Client findByClientId(Long clientId) {
-        ClientEntity entity = dataRepository.findByClientId(clientId)
+    public Optional<Client> findByClientId(Long clientId) {
+        return dataRepository.findByClientId(clientId)
                 .filter(ClientEntity::getStatus)
-                .orElseThrow();
-        return mapper.toModel(entity);
+                .map(mapper::toModel);
+               
     }
 
     @Override
     public List<Client> getAllClients() {
         return mapper.getModels(dataRepository.findAll())
-                .stream().filter(Client::getStatus).toList();
+                .stream().filter(Client::getStatus)
+                .toList();
     }
     
 
