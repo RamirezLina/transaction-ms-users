@@ -1,8 +1,10 @@
 package com.transactionmgmt.users.ms_users.service.dto;
 
+import com.transactionmgmt.users.ms_users.domain.client.GenderType;
+
 public record UpdateClientDto(
         String name,
-        String gender,
+        GenderType gender,
         int age,
         String identification,
         String address,
