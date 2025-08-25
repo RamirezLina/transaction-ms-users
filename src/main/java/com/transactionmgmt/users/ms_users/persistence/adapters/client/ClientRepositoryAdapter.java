@@ -17,8 +17,9 @@ public class ClientRepositoryAdapter implements ClientRepository {
     private final ClientEntityMapper mapper;
     
     @Override
-    public void saveClient(Client newClient) {
-        dataRepository.save(mapper.toEntity(newClient));
+    public Client saveClient(Client newClient) {
+        ClientEntity entity = dataRepository.save(mapper.toEntity(newClient));
+        return mapper.toModel(entity); 
     }
 
     @Override

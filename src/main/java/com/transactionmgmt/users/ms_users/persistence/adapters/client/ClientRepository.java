@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ClientRepository {
 
-    void saveClient(Client newClient);
+    Client saveClient(Client newClient);
     Client findByClientId(Long clientId);
     List<Client> getAllClients();
     
