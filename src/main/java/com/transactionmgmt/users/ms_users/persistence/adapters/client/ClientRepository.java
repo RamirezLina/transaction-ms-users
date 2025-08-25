@@ -3,13 +3,13 @@ package com.transactionmgmt.users.ms_users.persistence.adapters.client;
 
 import com.transactionmgmt.users.ms_users.domain.client.Client;
 
-import java.math.BigInteger;
 import java.util.List;
+import java.util.Optional;
 
 public interface ClientRepository {
 
     Client saveClient(Client newClient);
-    Client findByClientId(Long clientId);
+    Optional<Client> findByClientId(Long clientId);
     List<Client> getAllClients();
     
 }
